@@ -1,0 +1,103 @@
+.tien-step {
+  display: inline-block;
+  height: 24px;
+  width: 93px; }
+  .tien-step button, .tien-step .step-value {
+    border: none;
+    float: left;
+    height: 24px;
+    text-align: center; }
+    .tien-step button:focus, .tien-step button:active, .tien-step button:focus:active, .tien-step .step-value:focus, .tien-step .step-value:active, .tien-step .step-value:focus:active {
+      outline: none; }
+  .tien-step button {
+    background: transparent;
+    color: white;
+    line-height: 24px;
+    width: 24px; }
+  .tien-step .step-value {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    font-size: 18px;
+    line-heigth: 22px;
+    padding: 0;
+    width: 45px; }
+  .tien-step.primary button {
+    background: #428bca; }
+    .tien-step.primary button:active {
+      background: #3071a9; }
+    .tien-step.primary button.disabled {
+      opacity: 0.8; }
+      .tien-step.primary button.disabled:active {
+        background: #428bca; }
+  .tien-step.primary .step-value {
+    border-color: #428bca; }
+    .tien-step.primary .step-value i.fa {
+      color: #428bca;
+      font-size: 14px;
+      line-height: 20px;
+      top: -2px;
+      position: relative; }
+  .tien-step.success button {
+    background: #5cb85c; }
+    .tien-step.success button:active {
+      background: #449d44; }
+    .tien-step.success button.disabled {
+      opacity: 0.8; }
+      .tien-step.success button.disabled:active {
+        background: #5cb85c; }
+  .tien-step.success .step-value {
+    border-color: #5cb85c; }
+    .tien-step.success .step-value i.fa {
+      color: #5cb85c;
+      font-size: 14px;
+      line-height: 20px;
+      top: -2px;
+      position: relative; }
+  .tien-step.info button {
+    background: #5bc0de; }
+    .tien-step.info button:active {
+      background: #31b0d5; }
+    .tien-step.info button.disabled {
+      opacity: 0.8; }
+      .tien-step.info button.disabled:active {
+        background: #5bc0de; }
+  .tien-step.info .step-value {
+    border-color: #5bc0de; }
+    .tien-step.info .step-value i.fa {
+      color: #5bc0de;
+      font-size: 14px;
+      line-height: 20px;
+      top: -2px;
+      position: relative; }
+  .tien-step.warning button {
+    background: #f0ad4e; }
+    .tien-step.warning button:active {
+      background: #ec971f; }
+    .tien-step.warning button.disabled {
+      opacity: 0.8; }
+      .tien-step.warning button.disabled:active {
+        background: #f0ad4e; }
+  .tien-step.warning .step-value {
+    border-color: #f0ad4e; }
+    .tien-step.warning .step-value i.fa {
+      color: #f0ad4e;
+      font-size: 14px;
+      line-height: 20px;
+      top: -2px;
+      position: relative; }
+  .tien-step.danger button {
+    background: #d9534f; }
+    .tien-step.danger button:active {
+      background: #c9302c; }
+    .tien-step.danger button.disabled {
+      opacity: 0.8; }
+      .tien-step.danger button.disabled:active {
+        background: #d9534f; }
+  .tien-step.danger .step-value {
+    border-color: #d9534f; }
+    .tien-step.danger .step-value i.fa {
+      color: #d9534f;
+      font-size: 14px;
+      line-height: 20px;
+      top: -2px;
+      position: relative; }

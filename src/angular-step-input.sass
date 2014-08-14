@@ -1,0 +1,65 @@
+@mixin step-color($color)
+  button
+    background: $color
+
+    &:active
+      background: darken($color, 10%)
+
+    &.disabled
+      opacity: .8
+
+      &:active
+        background: $color
+
+  .step-value
+    border-color: $color
+
+    i.fa
+      color: $color
+      font-size: 14px
+      line-height: 20px
+      top: -2px
+      position: relative
+
+.tien-step
+  display: inline-block
+  height: 24px
+  width: 93px
+
+  button, .step-value
+    border: none
+    float: left
+    height: 24px
+    text-align: center
+
+    &:focus, &:active, &:focus:active
+      outline: none
+
+  button
+    background: transparent
+    color: #fff
+    line-height: 24px
+    width: 24px
+
+  .step-value
+    border-bottom: 1px solid transparent
+    border-top: 1px solid transparent
+    font-size: 18px
+    line-heigth: 22px
+    padding: 0
+    width: 45px
+
+  &.primary
+    @include step-color(#428bca)
+
+  &.success
+    @include step-color(#5cb85c)
+
+  &.info
+    @include step-color(#5bc0de)
+
+  &.warning
+    @include step-color(#f0ad4e)
+
+  &.danger
+    @include step-color(#d9534f)

@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS Step Input Directive</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="angular-step-input.css" rel="stylesheet">
+        <style>
+            body {
+                margin-top: 1em;
+            }
+            p {
+                line-height: 24px;
+            }
+        </style>
+    </head>
+    <body class="container" ng-app="stepInputApp">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12">
+                <div class="jumbotron">
+                    <h1>angular-step-input</h1>
+
+                    <p>Angular directive for a customized numeric user inputs</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Getting Started</h2>
+                        <ol>
+                            <li>Install with bower: <code>bower install --save angular-step-input</code></li>
+                            <li>Include <code>angular-step-input.js</code>.</li>
+                            <li>Add <code>tien.stepInput</code> to you app modules.</li>
+                            <li>Use the <code>tien-step-input</code> directive.</li>
+                        </ol>
+
+                        If you don't like package managers, you can also directly download
+                        <a href="./angular-step-input.js">angular-step-input.js</a> or
+                        <a href="./angular-step-input.min.js">angular-step-input.min.js</a>.
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Demos</h2>
+
+                        <div class="row">
+                            <div class="col-md-4 text-center" ng-controller="DemoDefaultCtrl">
+                                <h4>1. Out-of-the-box</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="demo"></tien-step-input>
+                                    <p class="help-block"><code>$scope.demo = {{demo}}</code></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 text-center" ng-controller="DemoIconCtrl">
+                                <h4>2. Custom icons and style</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="demo" step-input-options="options"></tien-step-input>
+                                    <p class="help-block"><code>$scope.demo = {{demo}}</code></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 text-center" ng-controller="DemoStepCtrl">
+                                <h4>3. Specific step settings</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="demo" step-input-options="options"></tien-step-input>
+                                    <p class="help-block"><code>$scope.demo = {{demo}}</code></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 text-center" ng-controller="DemoViewFunctionCtrl">
+                                <h4>4. View value as a function</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="demo" step-input-options="options"></tien-step-input>
+                                    <p class="help-block"><code>$scope.demo = {{demo}}</code></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 text-center" ng-controller="DemoViewExpressionCtrl">
+                                <h4>5. View value as an expression</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="demo" step-input-options="options"></tien-step-input>
+                                    <p class="help-block"><code>$scope.demo = {{demo}}</code></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 text-center" ng-controller="DemoAvailabilityCtrl">
+                                <h4>6. Availability example</h4>
+                                <div class="form-group">
+                                    <tien-step-input ng-model="available" step-input-options="options"></tien-step-input>
+                                    <p class="help-block"><code>$scope.available = {{available}}</code></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+                <script src="angular-step-input.js"></script>
+                <script>
+                    app = angular.module('stepInputApp', ['tien.stepInput']);
+                    app.controller('DemoDefaultCtrl', function ($scope) {
+                        $scope.demo = 1;
+                    });
+                    app.controller('DemoIconCtrl', function ($scope) {
+                        $scope.demo = 2;
+                        $scope.options = {decrease: 'fa fa-star-o', increase: 'fa fa-star', style: 'warning'};
+                    });
+                    app.controller('DemoStepCtrl', function ($scope) {
+                        $scope.demo = 3;
+                        $scope.options = {overrides: [{value: 3, style: 'success', decrease: 'fa fa-hand-o-left', increase: 'fa fa-hand-o-right'}]};
+                    });
+                    app.controller('DemoViewFunctionCtrl', function ($scope) {
+                        $scope.demo = 4;
+                        icon = function () {
+                          icons = [
+                            '<i class="fa fa-beer"></i>',
+                            '<i class="fa fa-bullhorn"></i>',
+                            '<i class="fa fa-heart"></i>',
+                            '<i class="fa fa-thumbs-up"></i>',
+                            '<i class="fa fa-paw"></i>',
+                            '<i class="fa fa-space-shuttle"></i>',
+                            '<i class="fa fa-paper-plane"></i>'
+                          ];
+                          return icons[$scope.demo];
+                        };
+                        $scope.options = {minValue: 0, maxValue: 6, view_value: icon};
+                    });
+                    app.controller('DemoViewExpressionCtrl', function ($scope) {
+                        $scope.demo = 5;
+                        $scope.options = {view_value: '{{value * 3}}'};
+                    });
+                    app.controller('DemoAvailabilityCtrl', function ($scope) {
+                        $scope.available = 2;
+                        ten_or_more = function() {
+                            if ($scope.available <= 5) {
+                                return $scope.available;
+                            }
+                            else {
+                                return '5+';
+                            }
+                        }
+                        $scope.options = {
+                            min_value: -1,
+                            max_value: 6,
+                            view_value: ten_or_more,
+                            overrides: [
+                                {value: -1, style: 'danger', view_value: '<i class="fa fa-times"></i>'},
+                                {value: 0, style: 'warning', view_value: '<i class="fa fa-question"></i>'}
+                            ]
+                        };
+                    });
+                </script>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Usage</h2>
+                        <p>
+                            Use the <code>tien-step-input</code> directive as element or attribute. Add the
+                            <code>ng-model</code> directive to bind an integer. Optionally pass through a custom options object
+                            width the <code>step-input-options</code> attribute.
+                        </p>
+<pre><code>&lt;tien-input-step ng-model=&quot;foo&quot; step-input-options=&quot;my_options&quot;&gt;&lt;/tien-input-step&gt;
+&lt;script&gt;
+    $scope.options = {
+        min_value: -1,
+        overrides: [
+            {value: -1, style: &apos;danger&apos;, view_value: &apos;&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;&apos;},
+            {value: 0, style: &apos;warning&apos;, view_value: &apos;&lt;i class=&quot;fa fa-question&quot;&gt;&lt;/i&gt;&apos;}
+        ]
+    };
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Options</h2>
+                        <h4>decrease</h4>
+                        <p>
+                            Type: <code>String</code><br>
+                            Default: <code>fa fa-minus</code>
+                        </p>
+                        <p>
+                            CSS classes to add to the icon on the decrease button. By default FontAwesome icons are used.
+                        </p>
+                        <h4>increase</h4>
+                        <p>
+                            Type: <code>String</code><br>
+                            Default: <code>fa fa-plus</code>
+                        </p>
+                        <p>
+                            CSS classes to add to the icon on the increase button. By default FontAwesome icons are used.
+                        </p>
+                        <h4>min_value</h4>
+                        <p>
+                            Type: <code>Integer</code><br>
+                            Default: <code>0</code>
+                        </p>
+                        <p>
+                            Minimum value of the field, negative integers allowed.
+                        </p>
+                        <h4>max_value</h4>
+                        <p>
+                            Type: <code>Integer</code><br>
+                            Default: <code>999</code>
+                        </p>
+                        <p>
+                            Maximum value of the field, negative integers allowed.
+                        </p>
+                        <h4>style</h4>
+                        <p>
+                            Type: <code>String</code><br>
+                            Default: <code>primary</code>
+                        </p>
+                        <p>
+                            CSS classes applied to the container element of the directive. The default stylesheet provides all
+                            Bootstrap color classes (<code>primary</code>, <code>success</code>, <code>info</code>,
+                            <code>warning</code>, <code>danger</code>). The [sass-src file]()
+                            includes a mixin to easily add custom colors.
+                        </p>
+                        <h4>view_value</h4>
+                        <p>
+                            Type: <code>Function</code> | <code>Expression</code> | <code>Boolean</code><br>
+                            Default: <code>false</code>
+                        </p>
+                        <p>
+                            By default (<code>false</code>) the input displays the current integer-value in a regular input
+                            element. With the <code>view_value</code> option it is possible to alter this representation with
+                            a function (demo 4) or angular expression (demo 5) that returns an HTML-string.
+                        </p>
+                        <h4>overrides</h4>
+                        <p>
+                            Type: <code>Array</code> <br>
+                            Default: <code>[]</code>
+                        </p>
+                        <p>
+                            This Array overrides options based on specific input values. Each array element has to be an Object
+                            with at least the value-property. All options mentioned above are available. See demo 3 & 6.
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">
+                            angular-step-input 0.1.0 &middot; Created by <a href="http://angular-step-input.10kb.nl/">10KB</a><br>
+                            Thanks to <a href="http://fontawesome.io/">FontAwesome</a> for providing awesome icons.
+                        </p>
+                        <p class="text-center">
+                            <a href="https://github.com/10KB/angular-step-input">GitHub Project</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
