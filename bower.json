@@ -1,12 +1,22 @@
 {
-    "author": "10KB",
-    "name": "angular-step-input",
-    "version": "0.0.1",
-    "dependencies": {
-        "angular": ">=1"
-    },
-    "devDependencies": {
-        "angular-mocks": ">=1",
-        "angular-scenario": ">=1"
-    }
+  "name": "angular-step-input",
+  "description": "Angular directive for a customized numeric user inputs",
+  "version": "0.1.0",
+  "author": "10KB",
+  "main": "./angular-step-input.js",
+  "ignore": [
+    "test",
+    "src",
+    "Gruntfile.coffee",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": ">=1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.22",
+    "angular-scenario": ">=1",
+    "jquery": "~2.1.1",
+    "jasmine-jquery": "~2.0.5"
+  }
 }
