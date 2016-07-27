@@ -4,7 +4,7 @@ angular-step-input
 A custom user input extracted from our inhouse framework/cms. The input is somewhat similar to a native number-input,
 but it allows for default styling and custom styling overrides for specified numbers.
 
-Brought to you by [10KB](http://10kb.nl/).
+Brought to you by [10KB](https://10kb.nl/).
 
 ## Demo
 
@@ -43,4 +43,4 @@ options = {
 
 ## License
 
-angular-step-input is released under the [MIT license](http://10kb.mit-license.org/). 
+angular-step-input is released under the [MIT license](https://10kb.mit-license.org/). 
